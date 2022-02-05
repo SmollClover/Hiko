@@ -9,8 +9,8 @@
 ## ToDo List
 
 -   [ ] MongoDB
-    -   [ ] Set the Schemas
-    -   [ ] Define data Structures
+    -   [x] Set the Schemas
+    -   [x] Define data Structures
 -   [ ] Use Discord interaction elements
     -   [ ] Button to close Ticket
 -   [ ] On Message Create Event
@@ -32,7 +32,27 @@
 
 ## Data Structures
 
-> Not defined yet
+<details>
+    <summary>Settings</summary>
+
+    ┌──────────┬─────────────────┬───────────┬─────────────────┬──────────┐
+    │  guild   │    channels     │   quote   │      pings      │   text   │
+    ├──────────┼─────────────────┼───────────┼─────────────────┼──────────┤
+    │  Number  │  Array<Number>  │  Boolean  │  Array<Number>  │  String  │
+    └──────────┴─────────────────┴───────────┴─────────────────┴──────────┘
+
+</details>
+
+<details>
+    <summary>Tickets</summary>
+
+    ┌──────────┬──────────┬───────────┬─────────────┬──────────┐
+    │  guild   │  number  │  creator  │  createdAt  │  text    │
+    ├──────────┼──────────┼───────────┼─────────────┼──────────┤
+    │  Number  │  Number  │  Number   │  Number     │  String  │
+    └──────────┴──────────┴───────────┴─────────────┴──────────┘
+
+</details>
 
 ---
 

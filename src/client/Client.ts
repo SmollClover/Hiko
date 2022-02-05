@@ -57,23 +57,31 @@ class client extends Client {
 			this.on(file.name, file.run.bind(undefined, this));
 		});
 
-		// this.db = new Database({
-		// 	mongoURI: process.env.MONGO_URI,
-		// 	schemas: [
-		// 		{
-		// 			name: 'rnn',
-		// 			data: {
-		// 				User: String,
-		// 				MTF: String,
-		// 				CT: String,
-		// 				Medic: String,
-		// 				WS: String,
-		// 				ShD: String,
-		// 				Management: String,
-		// 			},
-		// 		},
-		// 	],
-		// });
+		this.db = new Database({
+			mongoURI: process.env.MONGO_URI,
+			schemas: [
+				{
+					name: 'settings',
+					data: {
+						guild: Number,
+						channels: Array,
+						quote: Boolean,
+						pings: Array,
+						text: String,
+					},
+				},
+				{
+					name: 'tickets',
+					data: {
+						guild: Number,
+						number: Number,
+						creator: Number,
+						createdAt: Number,
+						closedAt: Number,
+					},
+				},
+			],
+		});
 	}
 
 	public embed(options: MessageEmbedOptions, message: Message): MessageEmbed {
