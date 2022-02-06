@@ -1,14 +1,21 @@
-export interface settings {
+export interface Settings {
 	guild: Number;
-	channels: Array<Number>;
+	moderators: Array<Number>;
+}
+
+export interface Channel {
+	guild: Number;
+	channel: Number;
 	quote: Boolean;
 	pings: Array<Number>;
 	text: String;
 }
 
-export interface ticket {
+export interface Ticket {
 	guild: Number;
+	channel: Number;
 	number: Number;
+	message: String;
 	creator: Number;
 	createdAt: Number;
 	closedAt: Number;

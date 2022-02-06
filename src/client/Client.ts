@@ -64,7 +64,14 @@ class client extends Client {
 					name: 'settings',
 					data: {
 						guild: Number,
-						channels: Array,
+						moderators: Array,
+					},
+				},
+				{
+					name: 'channels',
+					data: {
+						guild: Number,
+						channel: Number,
 						quote: Boolean,
 						pings: Array,
 						text: String,
@@ -74,7 +81,9 @@ class client extends Client {
 					name: 'tickets',
 					data: {
 						guild: Number,
+						channel: Number,
 						number: Number,
+						message: String,
 						creator: Number,
 						createdAt: Number,
 						closedAt: Number,
