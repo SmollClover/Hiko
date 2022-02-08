@@ -1,14 +1,15 @@
 import { client } from '../client/Client';
-import { Message } from 'discord.js';
+import { Interaction, ApplicationCommandType, ApplicationCommandOptionData } from 'discord.js';
 
 export interface RunFunction {
-	(client: client, message: Message, args: string[]): Promise<unknown>;
+	(client: client, interaction: Interaction): Promise<unknown>;
 }
 
 export interface Command {
 	name: string;
-	category: string;
-	aliases?: string[];
-	cooldown: number;
+	description: string;
+	type?: ApplicationCommandType;
+	options?: Array<ApplicationCommandOptionData>;
+	defaultPermissions?: boolean;
 	run: RunFunction;
 }

@@ -38,15 +38,12 @@ class client extends Client {
 
 		this.login(TOKEN);
 
-		const commandFiles: string[] = await globPromise(`${__dirname}/../commands/**/*{.ts,.js}`);
+		const commandFiles: string[] = await globPromise(`${__dirname}/../commands/*{.ts,.js}`);
 		commandFiles.map(async (value: string) => {
 			const file: Command = await import(value);
 			this.commands.set(file.name, {
-				cooldown: 3000,
 				...file,
 			});
-
-			if (file.aliases?.length) file.aliases.map((value: string) => this.aliases.set(value, file.name));
 		});
 
 		const eventFiles: string[] = await globPromise(`${__dirname}/../events/**/*{.ts,.js}`);
@@ -93,11 +90,11 @@ class client extends Client {
 		});
 	}
 
-	public embed(options: MessageEmbedOptions, message: Message): MessageEmbed {
+	public embed(options: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ ...options }).setColor('#5865F2');
 	}
 
-	public errorEmbed(options: MessageEmbedOptions, message: Message): MessageEmbed {
+	public errorEmbed(options: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ ...options }).setColor('#FF0000').setTimestamp();
 	}
 }

@@ -13,6 +13,7 @@
     -   [x] Define data Structures
 -   [ ] Use Discord interaction elements
     -   [ ] Button to close Ticket
+    -   [x] Slash Commands
 -   [ ] On Message Create Event
     -   [ ] Create Thread on Message
     -   [ ] Send Message(Embed) in Thread

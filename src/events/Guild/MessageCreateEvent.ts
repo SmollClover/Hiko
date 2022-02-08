@@ -1,3 +1,8 @@
+/*
+NOTE: Completely depreacted due to the use of Discords Command Interactions.
+
+TODO: Update this for Ticket creation process when applicable.
+
 import { Message } from 'discord.js';
 import { RunFunction } from '../../interfaces/Event';
 import { Command } from '../../interfaces/Command';
@@ -41,11 +46,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 
 		return client.logger.error(reason);
 	});
-
-	client.cooldowns.set(`${msg.author.id}-${command.name}`, Date.now() + command.cooldown);
-	setTimeout(() => {
-		client.cooldowns.delete(`${msg.author.id}-${command.name}`);
-	}, command.cooldown);
 };
 
 export const name: string = 'messageCreate';
+*/
