@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { Client, Message, MessageEmbed, MessageEmbedOptions, Intents, Collection } from 'discord.js';
+import { Client, MessageEmbed, MessageEmbedOptions, Intents, Collection } from 'discord.js';
 import consola, { Consola } from 'consola';
 import { Database } from 'zapmongo';
 import { promisify } from 'util';
@@ -9,6 +9,7 @@ import glob from 'glob';
 
 import { Command } from '../interfaces/Command';
 import { Event } from '../interfaces/Event';
+import { Button } from '../interfaces/Button';
 
 const globPromise = promisify(glob);
 
@@ -17,6 +18,7 @@ class client extends Client {
 
 	public logger: Consola = consola;
 	public commands: Collection<string, Command> = new Collection();
+	public buttons: Collection<string, Button> = new Collection();
 	public aliases: Collection<string, string> = new Collection();
 	public events: Collection<string, Event> = new Collection();
 	public cooldowns: Collection<string, number> = new Collection();
@@ -42,6 +44,14 @@ class client extends Client {
 		commandFiles.map(async (value: string) => {
 			const file: Command = await import(value);
 			this.commands.set(file.name, {
+				...file,
+			});
+		});
+
+		const buttonFiles: string[] = await globPromise(`${__dirname}/../buttons/*{.ts,.js}`);
+		buttonFiles.map(async (value: string) => {
+			const file: Button = await import(value);
+			this.buttons.set(file.customId, {
 				...file,
 			});
 		});

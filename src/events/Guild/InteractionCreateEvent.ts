@@ -1,5 +1,6 @@
 import { Interaction } from 'discord.js';
 import { Command } from '../../interfaces/Command';
+import { Button } from '../../interfaces/Button';
 import { RunFunction } from '../../interfaces/Event';
 
 export const run: RunFunction = async (client, interaction: Interaction) => {
@@ -17,6 +18,19 @@ export const run: RunFunction = async (client, interaction: Interaction) => {
 			});
 
 			return client.logger.error(reason);
+		});
+	} else if (interaction.isButton()) {
+		const button: Button | undefined = client.buttons.get(interaction.customId);
+		if (!button) return;
+
+		button.run(client, interaction).catch((reason: any) => {
+			interaction.reply({
+				embeds: [
+					client.errorEmbed({
+						description: `An Error occurred while executing the command:\n\`\`\`typescript\n${reason}\n\`\`\``,
+					}),
+				],
+			});
 		});
 	}
 };
