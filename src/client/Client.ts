@@ -72,6 +72,7 @@ class client extends Client {
 					data: {
 						guild: Number,
 						moderators: Array,
+						logChannelId: Number,
 					},
 				},
 				{
