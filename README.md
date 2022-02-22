@@ -12,8 +12,8 @@
     -   [x] Set the Schemas
     -   [x] Define data Structures
 -   [ ] Use Discord interaction elements
-    -   [ ] Button to close Ticket
-    -   [x] Slash Commands
+    -   [x] Button Handler
+    -   [x] Slashcommand Handler
 -   [ ] On Message Create Event
     -   [ ] Create Thread on Message
     -   [ ] Send Message(Embed) in Thread
@@ -22,6 +22,9 @@
         -   [ ] Add configured Text
 -   [ ] On Button Interaction Event
     -   [ ] Lock and or Archive Thread based on configuration
+-   [ ] On Guild Join Event
+    -   [ ] Create default Settings in DB
+    -   [ ] Send Message saying that things need to be configured
 -   [ ] Logging System
     -   [ ] Have a Log Channel with everything that happened
     -   [ ] Disabled by default
@@ -36,11 +39,11 @@
 <details>
     <summary>Settings</summary>
 
-    ┌──────────┬─────────────────┐
-    │  guild   │  moderators     │
-    ├──────────┼─────────────────┤
-    │  Number  │  Array<Number>  │
-    └──────────┴─────────────────┘
+    ┌──────────┬─────────────────┬────────────────┐
+    │  guild   │  moderators     │  logChannelId  |
+    ├──────────┼─────────────────┼────────────────┤
+    │  Number  │  Array<Number>  │  Number        |
+    └──────────┴─────────────────┴────────────────┘
 
 </details>
 
