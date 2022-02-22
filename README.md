@@ -30,7 +30,7 @@
     -   [ ] Disabled by default
 -   [ ] GitHub Repository
     -   [ ] Make Setup Instructions better
-    -   [ ] Add a FAQ Section
+    -   [ ] Add a FAQ Section (if needed)
 
 ---
 
