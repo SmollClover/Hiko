@@ -21,7 +21,7 @@
         -   [ ] Quote Message that was sent by User to create Ticket
         -   [ ] Add configured Text
 -   [ ] On Button Interaction Event
-    -   [ ] Lock and or Archive Thread based on configuration
+    -   [ ] Lock and Archive Thread based on configuration
 -   [ ] On Guild Join Event
     -   [x] Create default Settings in DB
     -   [x] Send Message saying that things need to be configured
