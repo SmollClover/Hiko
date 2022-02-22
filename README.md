@@ -23,8 +23,8 @@
 -   [ ] On Button Interaction Event
     -   [ ] Lock and or Archive Thread based on configuration
 -   [ ] On Guild Join Event
-    -   [ ] Create default Settings in DB
-    -   [ ] Send Message saying that things need to be configured
+    -   [x] Create default Settings in DB
+    -   [x] Send Message saying that things need to be configured
 -   [ ] Logging System
     -   [ ] Have a Log Channel with everything that happened
     -   [ ] Disabled by default
