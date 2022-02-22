@@ -40,7 +40,7 @@
     <summary>Settings</summary>
 
     ┌──────────┬─────────────────┬────────────────┐
-    │  guild   │  moderators     │  logChannelId  |
+    │  Guild   │  Moderators     │  LogChannelId  |
     ├──────────┼─────────────────┼────────────────┤
     │  String  │  Array<String>  │  String        |
     └──────────┴─────────────────┴────────────────┘
@@ -51,7 +51,7 @@
     <summary>Channels</summary>
 
     ┌──────────┬───────────┬───────────┬─────────────────┬──────────┐
-    │  guild   │  channel  │  quote    │  pings          │  text    │
+    │  Guild   │  Channel  │  Quote    │  Pings          │  Text    │
     ├──────────┼───────────┼───────────┼─────────────────┼──────────┤
     │  String  │  String   │  Boolean  │  Array<String>  │  String  │
     └──────────┴───────────┴───────────┴─────────────────┴──────────┘
@@ -62,7 +62,7 @@
     <summary>Tickets</summary>
 
     ┌──────────┬───────────┬──────────┬───────────┬───────────┬─────────────┬────────────┐
-    │  guild   │  channel  │  number  │  message  │  creator  │  createdAt  │  closedAt  │
+    │  Guild   │  Channel  │  Number  │  Message  │  Creator  │  CreatedAt  │  ClosedAt  │
     ├──────────┼───────────┼──────────┼───────────┼───────────┼─────────────┼────────────┤
     │  String  │  String   │  String  │  String   │  String   │  Number     │  Number    │
     └──────────┴───────────┴──────────┴───────────┴───────────┴─────────────┴────────────┘
