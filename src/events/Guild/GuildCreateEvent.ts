@@ -12,6 +12,22 @@ export const run: RunFunction = async (client, guild: Guild) => {
 			LogChannelId: '',
 		}
 	);
+
+	try {
+		await guild.systemChannel.send({
+			embeds: [
+				client.embed({
+					title: 'Hiko | The Simple Ticket Managing Bot',
+					description:
+						'You need to configure this Bot first, to make it work.\nPlease use `/` to execute the configuration Commands.',
+					footer: {
+						text: 'Administrative Privileges are required!',
+					},
+					timestamp: new Date(),
+				}),
+			],
+		});
+	} catch {}
 };
 
 export const name: string = 'guildCreate';
