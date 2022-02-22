@@ -25,6 +25,19 @@
 -   [ ] On Guild Join Event
     -   [x] Create default Settings in DB
     -   [x] Send Message saying that things need to be configured
+-   [ ] Commands
+    -   [ ] Add Basic Command Structure
+        -   [ ] Settings
+            -   [ ] Add Moderator
+            -   [ ] Remove Moderator
+            -   [ ] Set Log Channel
+        -   [ ] Channels
+            -   [ ] Add Channel to Bot
+            -   [ ] Remove Channel from Bot
+            -   [ ] Quote yes or no
+            -   [ ] Add Ping
+            -   [ ] Remove Ping
+            -   [ ] Set Text
 -   [ ] Logging System
     -   [ ] Have a Log Channel with everything that happened
     -   [ ] Disabled by default
