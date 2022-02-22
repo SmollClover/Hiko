@@ -42,7 +42,7 @@
     ┌──────────┬─────────────────┬────────────────┐
     │  guild   │  moderators     │  logChannelId  |
     ├──────────┼─────────────────┼────────────────┤
-    │  Number  │  Array<Number>  │  Number        |
+    │  String  │  Array<String>  │  String        |
     └──────────┴─────────────────┴────────────────┘
 
 </details>
@@ -53,7 +53,7 @@
     ┌──────────┬───────────┬───────────┬─────────────────┬──────────┐
     │  guild   │  channel  │  quote    │  pings          │  text    │
     ├──────────┼───────────┼───────────┼─────────────────┼──────────┤
-    │  Number  │  Number   │  Boolean  │  Array<Number>  │  String  │
+    │  String  │  String   │  Boolean  │  Array<String>  │  String  │
     └──────────┴───────────┴───────────┴─────────────────┴──────────┘
 
 </details>
@@ -64,7 +64,7 @@
     ┌──────────┬───────────┬──────────┬───────────┬───────────┬─────────────┬────────────┐
     │  guild   │  channel  │  number  │  message  │  creator  │  createdAt  │  closedAt  │
     ├──────────┼───────────┼──────────┼───────────┼───────────┼─────────────┼────────────┤
-    │  Number  │  Number   │  Number  │  String   │  Number   │  Number     │  Number    │
+    │  String  │  String   │  String  │  String   │  String   │  Number     │  Number    │
     └──────────┴───────────┴──────────┴───────────┴───────────┴─────────────┴────────────┘
 
 </details>
