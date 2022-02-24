@@ -1,11 +1,12 @@
 import { ApplicationCommandOptionData, CommandInteraction } from 'discord.js';
 import { RunFunction } from '../../interfaces/Command';
+import { Settings } from '../../interfaces/DB';
 
 export const run: RunFunction = async (client, interaction: CommandInteraction) => {
 	await interaction.deferReply();
 
 	const SettingsSchema = await client.db.load('settings');
-	const Settings = await SettingsSchema.findOne({ Guild: interaction.guildId });
+	const Settings = (await SettingsSchema.findOne({ Guild: interaction.guildId })) as Settings;
 
 	if (!Settings) {
 		await interaction.editReply({
@@ -17,6 +18,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 				}),
 			],
 		});
+
 		return client.emit('guildCreate', interaction.guild);
 	}
 
@@ -30,7 +32,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 				embeds: [client.errorEmbed({ description: '**User is already a Ticket Moderator**' })],
 			});
 
-		await Settings.Moderators.push(user.id);
+		Settings.Moderators.push(user.id);
 		await SettingsSchema.update({ Guild: interaction.guildId }, { ...Settings });
 
 		return interaction.editReply({
@@ -42,7 +44,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 				embeds: [client.errorEmbed({ description: '**User is not a Ticket Moderator**' })],
 			});
 
-		await Settings.Moderators.splice(Settings.Moderators.indexOf(user.id), 1);
+		Settings.Moderators.splice(Settings.Moderators.indexOf(user.id), 1);
 		await SettingsSchema.update({ Guild: interaction.guildId }, { ...Settings });
 
 		return interaction.editReply({
