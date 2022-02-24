@@ -8,7 +8,8 @@ export const description: string = 'Set a Channel for the Logs';
 export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'CHANNEL',
-		name: 'Channel',
+		name: 'channel',
 		description: 'Set a Channel as the Log Channel. Leave empty to echo current Channel.',
+		channelTypes: ['GUILD_TEXT'],
 	},
 ];

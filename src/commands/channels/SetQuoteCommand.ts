@@ -8,13 +8,14 @@ export const description: string = 'Enable / Disable the Quoting of the Users Me
 export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'CHANNEL',
-		name: 'Ticket Channel',
+		name: 'ticket-channel',
 		description: 'The Ticket Channel in question.',
+		channelTypes: ['GUILD_TEXT'],
 		required: true,
 	},
 	{
 		type: 'BOOLEAN',
-		name: 'True / False',
+		name: 'true-or-false',
 		description: 'Set whether to Quote the Users Message. Leave empty to echo current one.',
 	},
 ];

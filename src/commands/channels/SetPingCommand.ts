@@ -4,23 +4,24 @@ import { RunFunction } from '../../interfaces/Command';
 export const run: RunFunction = async (client, interaction: CommandInteraction) => {};
 
 export const name: string = 'ping';
-export const description: string = 'Add / Remove Roles to be pinged on Ticket creation';
+export const description: string = 'Add or Remove Roles to be pinged on Ticket creation';
 export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'CHANNEL',
-		name: 'Ticket Channel',
+		name: 'ticket-channel',
 		description: 'The Ticket Channel in question.',
+		channelTypes: ['GUILD_TEXT'],
 		required: true,
 	},
 	{
 		type: 'USER',
-		name: 'User',
+		name: 'user',
 		description: 'The User in question.',
 		required: true,
 	},
 	{
 		type: 'STRING',
-		name: 'Add / Remove',
+		name: 'add-or-remove',
 		description: 'Whether to add or remove the User from the Ticket Pings. Leave empty to echo Ping Status.',
 	},
 ];

@@ -8,13 +8,14 @@ export const description: string = 'Set / Echo the next Ticket Number';
 export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'CHANNEL',
-		name: 'Ticket Channel',
+		name: 'ticket-channel',
 		description: 'The Ticket Channel in question.',
+		channelTypes: ['GUILD_TEXT'],
 		required: true,
 	},
 	{
 		type: 'NUMBER',
-		name: 'Number',
+		name: 'number',
 		description: 'Set the Ticket Number to this one. Leave empty to echo current one.',
 	},
 ];
