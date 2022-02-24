@@ -27,6 +27,8 @@
     -   [x] Send Message saying that things need to be configured
 -   [ ] Commands
     -   [x] Add Basic Command Structure
+    -   [ ] General
+        -   [ ] Info
     -   [ ] Settings
         -   [ ] Add Moderator
         -   [ ] Remove Moderator
