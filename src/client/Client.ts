@@ -80,6 +80,7 @@ class client extends Client {
 					data: {
 						Guild: String,
 						Channel: String,
+						Number: Number,
 						Quote: Boolean,
 						Pings: Array,
 						Text: String,
