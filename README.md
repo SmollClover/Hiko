@@ -29,10 +29,10 @@
     -   [x] Add Basic Command Structure
     -   [ ] General
         -   [ ] Info
-    -   [ ] Settings
-        -   [ ] Add Moderator
-        -   [ ] Remove Moderator
-        -   [ ] Set Log Channel
+    -   [x] Settings
+        -   [x] Add Moderator
+        -   [x] Remove Moderator
+        -   [x] Set Log Channel
     -   [ ] Channels
         -   [ ] Add Channel to Bot
         -   [ ] Remove Channel from Bot
