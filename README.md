@@ -96,6 +96,13 @@ TOKEN=YOUR_DISCORD_BOT_TOKEN
 MONGO_URI=YOUR_MONGO_URI
 ```
 
+Using NVM
+
+```bash
+$ nvm install
+$ nvm use
+```
+
 Yarn
 
 ```bash
