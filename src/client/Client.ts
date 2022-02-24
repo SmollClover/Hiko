@@ -40,7 +40,7 @@ class client extends Client {
 
 		this.login(TOKEN);
 
-		const commandFiles: string[] = await globPromise(`${__dirname}/../commands/*{.ts,.js}`);
+		const commandFiles: string[] = await globPromise(`${__dirname}/../commands/**/*{.ts,.js}`);
 		commandFiles.map(async (value: string) => {
 			const file: Command = await import(value);
 			this.commands.set(file.name, {
@@ -48,7 +48,7 @@ class client extends Client {
 			});
 		});
 
-		const buttonFiles: string[] = await globPromise(`${__dirname}/../buttons/*{.ts,.js}`);
+		const buttonFiles: string[] = await globPromise(`${__dirname}/../buttons/**/*{.ts,.js}`);
 		buttonFiles.map(async (value: string) => {
 			const file: Button = await import(value);
 			this.buttons.set(file.customId, {
