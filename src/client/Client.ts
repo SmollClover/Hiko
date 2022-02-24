@@ -107,6 +107,10 @@ class client extends Client {
 	}
 
 	public errorEmbed(options: MessageEmbedOptions): MessageEmbed {
+		return new MessageEmbed({ ...options }).setColor('#FF0000');
+	}
+
+	public fatalErrorEmbed(options: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ ...options }).setColor('#FF0000').setTimestamp();
 	}
 }

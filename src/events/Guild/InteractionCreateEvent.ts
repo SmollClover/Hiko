@@ -11,7 +11,7 @@ export const run: RunFunction = async (client, interaction: Interaction) => {
 		command.run(client, interaction).catch((reason: any) => {
 			interaction.reply({
 				embeds: [
-					client.errorEmbed({
+					client.fatalErrorEmbed({
 						description: `An Error occurred while executing the command:\n\`\`\`typescript\n${reason}\n\`\`\``,
 					}),
 				],
@@ -26,7 +26,7 @@ export const run: RunFunction = async (client, interaction: Interaction) => {
 		button.run(client, interaction).catch((reason: any) => {
 			interaction.reply({
 				embeds: [
-					client.errorEmbed({
+					client.fatalErrorEmbed({
 						description: `An Error occurred while executing the command:\n\`\`\`typescript\n${reason}\n\`\`\``,
 					}),
 				],
