@@ -38,6 +38,7 @@
             -   [ ] Add Ping
             -   [ ] Remove Ping
             -   [ ] Set Text
+            -   [ ] Set Ticket Number
 -   [ ] Logging System
     -   [ ] Have a Log Channel with everything that happened
     -   [ ] Disabled by default
