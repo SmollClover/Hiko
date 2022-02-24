@@ -18,7 +18,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 				}),
 			],
 		});
-		
+
 		return client.emit('guildCreate', interaction.guild);
 	}
 
