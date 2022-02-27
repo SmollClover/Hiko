@@ -26,8 +26,8 @@
     -   [x] On Guild Join
         -   [x] Create default Settings in DB
         -   [x] Send Message saying that things need to be configured
-    -   [ ] On Channel Delete
-        -   [ ] Delete Ticket Channel data if existed
+    -   [x] On Channel Delete
+        -   [x] Delete Ticket Channel data if existed
 -   [x] Commands
     -   [x] Add Basic Command Structure
     -   [x] General
