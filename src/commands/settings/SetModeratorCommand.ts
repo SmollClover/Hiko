@@ -27,7 +27,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 	const status = Settings.Moderators.includes(user.id);
 
 	if (action === 'add') {
-		if (Settings.Moderators.includes(user.id))
+		if (status)
 			return interaction.editReply({
 				embeds: [client.errorEmbed({ description: '**User is already a Ticket Moderator**' })],
 			});
@@ -39,7 +39,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 			embeds: [client.embed({ description: '🟢 **Added to Ticket Moderators**' })],
 		});
 	} else if (action === 'remove') {
-		if (!Settings.Moderators.includes(user.id))
+		if (!status)
 			return interaction.editReply({
 				embeds: [client.errorEmbed({ description: '**User is not a Ticket Moderator**' })],
 			});
