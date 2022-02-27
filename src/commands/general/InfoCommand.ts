@@ -35,9 +35,12 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 		fields: [
 			{
 				name: 'Moderators',
-				value: Settings.Moderators.map((value) => {
-					return `<@${value}>`;
-				}).join(', '),
+				value:
+					Settings.Moderators.length > 0
+						? Settings.Moderators.map((value) => {
+								return `<@${value}>`;
+						  }).join(', ')
+						: 'None',
 			},
 		],
 	});
