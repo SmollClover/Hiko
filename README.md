@@ -8,10 +8,10 @@
 
 ## ToDo List
 
--   [ ] MongoDB
+-   [x] MongoDB
     -   [x] Set the Schemas
     -   [x] Define data Structures
--   [ ] Use Discord interaction elements
+-   [x] Use Discord interaction elements
     -   [x] Button Handler
     -   [x] Slashcommand Handler
 -   [ ] On Message Create Event
@@ -22,7 +22,7 @@
         -   [ ] Add configured Text
 -   [ ] On Button Interaction Event
     -   [ ] Lock and Archive Thread based on configuration
--   [ ] On Guild Join Event
+-   [x] On Guild Join Event
     -   [x] Create default Settings in DB
     -   [x] Send Message saying that things need to be configured
 -   [ ] On Channel Delete Event
