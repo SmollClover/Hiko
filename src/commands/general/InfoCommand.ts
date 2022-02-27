@@ -1,8 +1,14 @@
-import { CommandInteraction } from 'discord.js';
+import { CommandInteraction, GuildMember } from 'discord.js';
 import { RunFunction } from '../../interfaces/Command';
 import { Settings, Channels } from '../../interfaces/DB';
 
 export const run: RunFunction = async (client, interaction: CommandInteraction) => {
+	if (!(interaction.member as GuildMember).permissions.has('ADMINISTRATOR'))
+		return interaction.reply({
+			ephemeral: true,
+			embeds: [client.errorEmbed({ description: '**Insufficient Permissions**\nAdministrator Permissions required!' })],
+		});
+
 	await interaction.deferReply();
 
 	const SettingsSchema = await client.db.load('settings');

@@ -44,8 +44,8 @@
         -   [x] Remove Ping
         -   [x] Set Text
         -   [x] Set Ticket Number
--   [ ] Permissions
-    -   [ ] Commands only available as Administrator
+-   [x] Permissions
+    -   [x] Commands only available as Administrator
 -   [ ] GitHub Repository
     -   [ ] Make Setup Instructions better
     -   [ ] Add a FAQ Section (if needed)

@@ -3,6 +3,12 @@ import { RunFunction } from '../../interfaces/Command';
 import { Channels } from '../../interfaces/DB';
 
 export const run: RunFunction = async (client, interaction: CommandInteraction) => {
+	if (!(interaction.member as GuildMember).permissions.has('ADMINISTRATOR'))
+		return interaction.reply({
+			ephemeral: true,
+			embeds: [client.errorEmbed({ description: '**Insufficient Permissions**\nAdministrator Permissions required!' })],
+		});
+
 	await interaction.deferReply();
 
 	const ChannelsSchema = await client.db.load('channels');
