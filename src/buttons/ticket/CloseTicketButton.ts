@@ -31,7 +31,7 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 
 	await thread.setLocked(
 		true,
-		'Hiko | Ticket closed by ' + Settings.Moderators.includes(user.user.id) ? 'Moderator' : 'User'
+		`Hiko | Ticket closed by ${Settings.Moderators.includes(user.user.id) ? 'Moderator' : 'User'}`
 	);
 	await thread.setArchived(true);
 
