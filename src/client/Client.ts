@@ -103,11 +103,11 @@ class client extends Client {
 	}
 
 	public embed(options: MessageEmbedOptions): MessageEmbed {
-		return new MessageEmbed({ ...options }).setColor('#5865F2');
+		return new MessageEmbed({ ...options }).setColor('#2f3136');
 	}
 
 	public errorEmbed(options: MessageEmbedOptions): MessageEmbed {
-		return new MessageEmbed({ ...options }).setColor('#FF0000');
+		return new MessageEmbed({ ...options }).setColor('#F15353');
 	}
 
 	public fatalErrorEmbed(options: MessageEmbedOptions): MessageEmbed {
