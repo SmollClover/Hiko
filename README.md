@@ -8,47 +8,49 @@
 
 ## ToDo List
 
--   [x] MongoDB
-    -   [x] Set the Schemas
-    -   [x] Define data Structures
--   [x] Use Discord interaction elements
-    -   [x] Button Handler
-    -   [x] Slashcommand Handler
--   [ ] Events
-    -   [x] On Message Create
-        -   [x] Create Thread on Message
-        -   [x] Send Message(Embed) in Thread
-            -   [x] Ping Author and configured Roles/Users
-            -   [x] Quote Message that was sent by User to create Ticket
-            -   [x] Add configured Text
-    -   [x] On Button Interaction
-        -   [x] Lock and Archive Thread
-    -   [x] On Guild Join
-        -   [x] Create default Settings in DB
-        -   [x] Send Message saying that things need to be configured
-    -   [x] On Channel Delete
-        -   [x] Delete Ticket Channel data if existed
--   [x] Commands
-    -   [x] Add Basic Command Structure
-    -   [x] General
-        -   [x] Info
-    -   [x] Settings
-        -   [x] Add Moderator
-        -   [x] Remove Moderator
-        -   [x] Set Log Channel
-    -   [x] Channels
-        -   [x] Add Channel to Bot
-        -   [x] Remove Channel from Bot
-        -   [x] Quote yes or no
-        -   [x] Add Ping
-        -   [x] Remove Ping
-        -   [x] Set Text
-        -   [x] Set Ticket Number
--   [x] Permissions
-    -   [x] Commands only available as Administrator
--   [ ] GitHub Repository
-    -   [ ] Make Setup Instructions better
-    -   [ ] Add a FAQ Section (if needed)
+<details>
+    <summary>List</summary>
+
+    -   [x] MongoDB
+        -   [x] Set the Schemas
+        -   [x] Define data Structures
+    -   [x] Use Discord interaction elements
+        -   [x] Button Handler
+        -   [x] Slashcommand Handler
+    -   [x] Events
+        -   [x] On Message Create
+            -   [x] Create Thread on Message
+            -   [x] Send Message(Embed) in Thread
+                -   [x] Ping Author and configured Roles/Users
+                -   [x] Quote Message that was sent by User to create Ticket
+                -   [x] Add configured Text
+        -   [x] On Button Interaction
+            -   [x] Lock and Archive Thread
+        -   [x] On Guild Join
+            -   [x] Create default Settings in DB
+            -   [x] Send Message saying that things need to be configured
+        -   [x] On Channel Delete
+            -   [x] Delete Ticket Channel data if existed
+    -   [x] Commands
+        -   [x] Add Basic Command Structure
+        -   [x] General
+            -   [x] Info
+        -   [x] Settings
+            -   [x] Add Moderator
+            -   [x] Remove Moderator
+            -   [x] Set Log Channel
+        -   [x] Channels
+            -   [x] Add Channel to Bot
+            -   [x] Remove Channel from Bot
+            -   [x] Quote yes or no
+            -   [x] Add Ping
+            -   [x] Remove Ping
+            -   [x] Set Text
+            -   [x] Set Ticket Number
+    -   [x] Permissions
+        -   [x] Commands only available as Administrator
+
+</details>
 
 ---
 
