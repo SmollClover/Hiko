@@ -90,7 +90,6 @@ class client extends Client {
 					name: 'tickets',
 					data: {
 						Guild: String,
-						Channel: String,
 						Ticket: String,
 						Number: Number,
 						Message: String,
