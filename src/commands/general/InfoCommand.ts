@@ -29,20 +29,19 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 			{
 				name: 'Log Channel',
 				value: `<#${Settings.LogChannelId}>`,
-				inline: true,
 			},
 			{
 				name: 'Moderators',
 				value: Settings.Moderators.map((value) => {
 					return `<@${value}>`;
 				}).join(', '),
-				inline: true,
 			},
 		],
 	});
 
 	Channels.forEach((channel) => {
 		const data = [
+			`<#${channel.Channel}>`,
 			`Ticket Number: ${channel.Number}`,
 			`Quote: ${channel.Quote}`,
 			`Text: ${!!channel.Text}`,
@@ -52,7 +51,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 		];
 
 		embed.fields.push({
-			name: `<#${channel.Channel}>`,
+			name: `#${interaction.guild.channels.cache.get(channel.Channel).name}`,
 			value: data.join('\n'),
 			inline: true,
 		});
