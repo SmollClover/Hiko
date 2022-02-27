@@ -25,11 +25,8 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 	}
 
 	const embed = client.embed({
+		description: `**Log Channel:** <#${Settings.LogChannelId}>`,
 		fields: [
-			{
-				name: 'Log Channel',
-				value: `<#${Settings.LogChannelId}>`,
-			},
 			{
 				name: 'Moderators',
 				value: Settings.Moderators.map((value) => {
