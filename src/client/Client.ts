@@ -91,6 +91,7 @@ class client extends Client {
 					data: {
 						Guild: String,
 						Channel: String,
+						Ticket: String,
 						Number: Number,
 						Message: String,
 						Creator: String,
