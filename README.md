@@ -14,19 +14,20 @@
 -   [x] Use Discord interaction elements
     -   [x] Button Handler
     -   [x] Slashcommand Handler
--   [ ] On Message Create Event
-    -   [ ] Create Thread on Message
-    -   [ ] Send Message(Embed) in Thread
-        -   [ ] Ping Author and configured Roles/Users
-        -   [ ] Quote Message that was sent by User to create Ticket
-        -   [ ] Add configured Text
--   [ ] On Button Interaction Event
-    -   [ ] Lock and Archive Thread based on configuration
--   [x] On Guild Join Event
-    -   [x] Create default Settings in DB
-    -   [x] Send Message saying that things need to be configured
--   [ ] On Channel Delete Event
-    -   [ ] Delete Ticket Channel data if existed
+-   [ ] Events
+    -   [ ] On Message Create
+        -   [ ] Create Thread on Message
+        -   [ ] Send Message(Embed) in Thread
+            -   [ ] Ping Author and configured Roles/Users
+            -   [ ] Quote Message that was sent by User to create Ticket
+            -   [ ] Add configured Text
+    -   [ ] On Button Interaction
+        -   [ ] Lock and Archive Thread based on configuration
+    -   [x] On Guild Join
+        -   [x] Create default Settings in DB
+        -   [x] Send Message saying that things need to be configured
+    -   [ ] On Channel Delete
+        -   [ ] Delete Ticket Channel data if existed
 -   [x] Commands
     -   [x] Add Basic Command Structure
     -   [x] General
