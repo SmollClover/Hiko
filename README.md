@@ -49,6 +49,9 @@
             -   [x] Set Ticket Number
     -   [x] Permissions
         -   [x] Commands only available as Administrator
+    -   [ ] Logs
+        -   [ ] Log when Ticket created
+        -   [ ] Log when Ticket closed and by who
 
 </details>
 
