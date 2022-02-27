@@ -25,22 +25,24 @@
 -   [ ] On Guild Join Event
     -   [x] Create default Settings in DB
     -   [x] Send Message saying that things need to be configured
--   [ ] Commands
+-   [ ] On Channel Delete Event
+    -   [ ] Delete Ticket Channel data if existed
+-   [x] Commands
     -   [x] Add Basic Command Structure
-    -   [ ] General
-        -   [ ] Info
+    -   [x] General
+        -   [x] Info
     -   [x] Settings
         -   [x] Add Moderator
         -   [x] Remove Moderator
         -   [x] Set Log Channel
-    -   [ ] Channels
-        -   [ ] Add Channel to Bot
-        -   [ ] Remove Channel from Bot
-        -   [ ] Quote yes or no
-        -   [ ] Add Ping
-        -   [ ] Remove Ping
-        -   [ ] Set Text
-        -   [ ] Set Ticket Number
+    -   [x] Channels
+        -   [x] Add Channel to Bot
+        -   [x] Remove Channel from Bot
+        -   [x] Quote yes or no
+        -   [x] Add Ping
+        -   [x] Remove Ping
+        -   [x] Set Text
+        -   [x] Set Ticket Number
 -   [ ] Logging System
     -   [ ] Have a Log Channel with everything that happened
     -   [ ] Disabled by default
