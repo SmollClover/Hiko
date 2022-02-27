@@ -23,7 +23,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 	}
 
 	const user = interaction.options.get('user').user;
-	const action = interaction.options.get('action')?.value;
+	const action = interaction.options.get('action')?.value.toString().toLowerCase();
 	const status = Settings.Moderators.includes(user.id);
 
 	if (action === 'add') {
