@@ -1,24 +1,24 @@
 export interface Settings {
-	Guild: String;
-	Moderators: Array<String>;
-	LogChannelId: String;
+	Guild: string;
+	Moderators: Array<string>;
+	LogChannelId: string;
 }
 
 export interface Channels {
-	Guild: String;
-	Channel: String;
-	Number: Number;
-	Quote: Boolean;
-	Pings: Array<String>;
-	Text: String;
+	Guild: string;
+	Channel: string;
+	Number: number;
+	Quote: boolean;
+	Pings: Array<string>;
+	Text: string;
 }
 
 export interface Tickets {
-	Guild: String;
-	Channel: String;
-	Number: Number;
-	Message: String;
-	Creator: String;
-	CreatedAt: Number;
-	ClosedAt: Number;
+	Guild: string;
+	Channel: string;
+	Number: number;
+	Message: string;
+	Creator: string;
+	CreatedAt: number;
+	ClosedAt: number;
 }
