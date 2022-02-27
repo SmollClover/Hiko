@@ -15,14 +15,14 @@
     -   [x] Button Handler
     -   [x] Slashcommand Handler
 -   [ ] Events
-    -   [ ] On Message Create
-        -   [ ] Create Thread on Message
-        -   [ ] Send Message(Embed) in Thread
-            -   [ ] Ping Author and configured Roles/Users
-            -   [ ] Quote Message that was sent by User to create Ticket
-            -   [ ] Add configured Text
-    -   [ ] On Button Interaction
-        -   [ ] Lock and Archive Thread based on configuration
+    -   [x] On Message Create
+        -   [x] Create Thread on Message
+        -   [x] Send Message(Embed) in Thread
+            -   [x] Ping Author and configured Roles/Users
+            -   [x] Quote Message that was sent by User to create Ticket
+            -   [x] Add configured Text
+    -   [x] On Button Interaction
+        -   [x] Lock and Archive Thread
     -   [x] On Guild Join
         -   [x] Create default Settings in DB
         -   [x] Send Message saying that things need to be configured
@@ -44,9 +44,8 @@
         -   [x] Remove Ping
         -   [x] Set Text
         -   [x] Set Ticket Number
--   [ ] Logging System
-    -   [ ] Have a Log Channel with everything that happened
-    -   [ ] Disabled by default
+-   [ ] Permissions
+    -   [ ] Commands only available as Administrator
 -   [ ] GitHub Repository
     -   [ ] Make Setup Instructions better
     -   [ ] Add a FAQ Section (if needed)
