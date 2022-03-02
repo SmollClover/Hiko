@@ -27,12 +27,10 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 
 	const date = new Date();
 
-	interaction.editReply({ embeds: [client.embed({ description: '**Closing Ticket**' })] });
+	await interaction.editReply({ embeds: [client.embed({ description: '**Closing Ticket...**' })] });
+	await thread.send({ embeds: [client.embed({ description: `**Ticket closed by ${user.user.username}**` })] });
 
-	await thread.setLocked(
-		true,
-		`Hiko | Ticket closed by ${Settings.Moderators.includes(user.user.id) ? 'Moderator' : 'User'}`
-	);
+	await thread.setLocked(true, `Hiko | Ticket closed by ${user.user.username}`);
 	await thread.setArchived(true);
 
 	Ticket.ClosedAt = date.getTime();

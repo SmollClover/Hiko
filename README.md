@@ -26,7 +26,7 @@
                 -   [x] Add configured Text
         -   [x] On Button Interaction
             -   [x] Lock and Archive Thread
-            -   [ ] Send Message who closed Ticket
+            -   [x] Send Message who closed Ticket
         -   [x] On Guild Join
             -   [x] Create default Settings in DB
             -   [x] Send Message saying that things need to be configured
