@@ -14,7 +14,6 @@
     -   [x] MongoDB
         -   [x] Set the Schemas
         -   [x] Define data Structures
-        -   [ ] Scrap Ticket Schema
     -   [x] Use Discord interaction elements
         -   [x] Button Handler
         -   [x] Slashcommand Handler
