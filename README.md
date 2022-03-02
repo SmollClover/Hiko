@@ -122,3 +122,6 @@ $ npm start
     -   [x] Log when Ticket created
     -   [x] Log when Ticket closed and by who
     -   [x] Log when Ticket closed by deleted Message
+-   [ ] Other
+    -   [ ] Make Roles be addable and not only Users
+    -   [ ] Include a Template Invite Link in README, since Bot needs certain Permissions
