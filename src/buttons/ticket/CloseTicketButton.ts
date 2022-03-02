@@ -1,4 +1,4 @@
-import { ButtonInteraction, ThreadChannel } from 'discord.js';
+import { ButtonInteraction, TextChannel, ThreadChannel } from 'discord.js';
 import { RunFunction } from '../../interfaces/Button';
 import { Settings, Tickets } from '../../interfaces/DB';
 
@@ -34,13 +34,33 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 	await thread.setArchived(true);
 
 	Ticket.ClosedAt = date.getTime();
-	return TicketsSchema.update(
+	await TicketsSchema.update(
 		{
 			Guild: interaction.guildId,
 			Ticket: starterMessage.id,
 		},
 		{ ...Ticket }
 	);
+
+	try {
+		const logChannel = await interaction.guild.channels.fetch(Settings.LogChannelId, { force: true });
+		if (!logChannel || !(logChannel instanceof TextChannel)) return;
+
+		logChannel.send({
+			embeds: [
+				client.cleanEmbed({
+					title: 'Ticket Closed',
+					fields: [
+						{ name: 'Closed by', value: `<@${interaction.user.id}>`, inline: true },
+						{ name: 'Number', value: Ticket.Number.toString(), inline: true },
+						{ name: 'Channel', value: `<#${Ticket.Channel}>`, inline: true },
+					],
+					color: '#EA5071',
+					timestamp: date.getTime(),
+				}),
+			],
+		});
+	} catch {}
 };
 
 export const customId: string = 'close-ticket';

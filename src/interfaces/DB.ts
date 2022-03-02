@@ -15,6 +15,7 @@ export interface Channels {
 
 export interface Tickets {
 	Guild: string;
+	Channel: string;
 	Ticket: string;
 	Number: number;
 	Message: string;

@@ -50,9 +50,10 @@
             -   [x] Set Ticket Number
     -   [x] Permissions
         -   [x] Commands only available as Administrator
-    -   [ ] Logs
-        -   [ ] Log when Ticket created
-        -   [ ] Log when Ticket closed and by who
+    -   [x] Logs
+        -   [x] Log when Ticket created
+        -   [x] Log when Ticket closed and by who
+        -   [x] Log when Ticket closed by deleted Message
 
 </details>
 
@@ -85,11 +86,11 @@
 <details>
     <summary>Tickets</summary>
 
-    ┌──────────┬──────────┬──────────┬───────────┬───────────┬─────────────┬────────────┐
-    │  Guild   │  Ticket  │  Number  │  Message  │  Creator  │  CreatedAt  │  ClosedAt  │
-    ├──────────┼──────────┼──────────┼───────────┼───────────┼─────────────┼────────────┤
-    │  String  │  String  │  Number  │  String   │  String   │  Number     │  Number    │
-    └──────────┴──────────┴──────────┴───────────┴───────────┴─────────────┴────────────┘
+    ┌──────────┬──────────┬───────────┬──────────┬───────────┬───────────┬─────────────┬────────────┐
+    │  Guild   │  Ticket  │  Channel  │  Number  │  Message  │  Creator  │  CreatedAt  │  ClosedAt  │
+    ├──────────┼──────────┼───────────┼──────────┼───────────┼───────────┼─────────────┼────────────┤
+    │  String  │  String  │  String   │  Number  │  String   │  String   │  Number     │  Number    │
+    └──────────┴──────────┴───────────┴──────────┴───────────┴───────────┴─────────────┴────────────┘
 
 </details>
 

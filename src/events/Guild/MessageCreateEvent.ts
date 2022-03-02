@@ -1,4 +1,4 @@
-import { Message, MessageActionRow, MessageButton } from 'discord.js';
+import { Message, MessageActionRow, MessageButton, TextChannel } from 'discord.js';
 import { RunFunction } from '../../interfaces/Event';
 import { Settings, Channels } from '../../interfaces/DB';
 
@@ -60,7 +60,28 @@ export const run: RunFunction = async (client, msg: Message) => {
 		if (channel.Text) embeds[0].fields.push({ name: 'Please read', value: channel.Text, inline: false });
 
 		const messagePayload = content ? { content, embeds, components } : { embeds, components };
-		return thread.send(messagePayload);
+		await thread.send(messagePayload);
+
+		try {
+			const logChannel = await msg.guild.channels.fetch(Settings.LogChannelId, { force: true });
+			if (!logChannel || !(logChannel instanceof TextChannel)) return;
+
+			logChannel.send({
+				embeds: [
+					client.cleanEmbed({
+						title: 'Ticket Created',
+						fields: [
+							{ name: 'User', value: `<@${msg.author.id}>`, inline: true },
+							{ name: 'Number', value: ticket.Number.toString(), inline: true },
+							{ name: 'Channel', value: `<#${ticket.Channel}>`, inline: true },
+							{ name: 'Message', value: ticket.Message },
+						],
+						color: '#7BEA50',
+						timestamp: date.getTime(),
+					}),
+				],
+			});
+		} catch {}
 	});
 };
 

@@ -90,6 +90,7 @@ class client extends Client {
 					name: 'tickets',
 					data: {
 						Guild: String,
+						Channel: String,
 						Ticket: String,
 						Number: Number,
 						Message: String,
@@ -104,6 +105,10 @@ class client extends Client {
 
 	public embed(options: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ ...options }).setColor('#2f3136');
+	}
+
+	public cleanEmbed(options: MessageEmbedOptions): MessageEmbed {
+		return new MessageEmbed({ ...options });
 	}
 
 	public errorEmbed(options: MessageEmbedOptions): MessageEmbed {
