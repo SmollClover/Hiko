@@ -20,12 +20,14 @@ export const run: RunFunction = async (client, msg: Message) => {
 		reason: 'Hiko | Received Message in Ticket Channel',
 	}).then(async (thread) => {
 		const date = new Date();
+		const messageContent = msg.content ? msg.content : 'No Message Content provided';
+
 		const ticket = {
 			Guild: msg.guild.id,
 			Channel: msg.channel.id,
 			Ticket: msg.id,
 			Number: channel.Number,
-			Message: msg.content,
+			Message: messageContent,
 			Creator: msg.author.id,
 			CreatedAt: date.getTime(),
 			ClosedAt: 0,
@@ -56,7 +58,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 			),
 		];
 
-		if (channel.Quote) embeds[0].fields.push({ name: 'Message', value: msg.content, inline: false });
+		if (channel.Quote) embeds[0].fields.push({ name: 'Message', value: ticket.Message, inline: false });
 		if (channel.Text) embeds[0].fields.push({ name: 'Please read', value: channel.Text, inline: false });
 
 		const messagePayload = content ? { content, embeds, components } : { embeds, components };
