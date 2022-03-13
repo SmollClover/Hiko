@@ -100,6 +100,11 @@ $ npm start
         -   [x] Send Message saying that things need to be configured
     -   [x] On Channel Delete
         -   [x] Delete Ticket Channel data if existed
+    -   [ ] On Guild Leave
+        -   [ ] Cleanup Database
+            -   [ ] Purge Settings
+            -   [ ] Purge all Channels
+            -   [ ] Purge all Tickets
 -   [x] Commands
     -   [x] Add Basic Command Structure
     -   [x] General
