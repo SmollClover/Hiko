@@ -19,7 +19,7 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 
 	const user = interaction.member;
 
-	if (!Ticket) return;
+	if (!Ticket || thread.archived) return;
 	if (!(Settings.Moderators.includes(user.user.id) || Ticket.Creator === user.user.id))
 		return interaction.editReply({
 			embeds: [client.errorEmbed({ description: "**You're not allowed to close this Ticket!**" })],
