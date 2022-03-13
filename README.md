@@ -54,26 +54,51 @@ TOKEN=YOUR_DISCORD_BOT_TOKEN
 MONGO_URI=YOUR_MONGO_URI
 ```
 
-Using NVM
+**Using NVM**
 
 ```bash
 $ nvm install
 $ nvm use
 ```
 
-Yarn
+**Yarn**
 
 ```bash
 $ yarn install
 $ yarn start
 ```
 
-NPM
+**NPM**
 
 ```bash
 $ npm install
 $ npm start
 ```
+
+**Scopes**
+
+-   bot
+-   applications.commands
+
+**Permission**
+
+-   Read Messages
+-   Send Messages
+-   Send Messages in Thread
+-   Create Public Thread
+-   Create Private Thread
+-   Manage Messages
+-   Manage Threads
+-   Embed Links
+-   Read Message History
+-   Mention @everyone, @here and All Roles
+-   Add Reactions
+-   Use External Emojis
+-   Use External Stickers
+
+**Template Invite Link**
+
+`https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&permissions=532576431168&scope=applications.commands%20bot`
 
 ---
 
@@ -129,4 +154,4 @@ $ npm start
     -   [x] Log when Ticket closed by deleted Message
 -   [ ] Other
     -   [ ] Make Roles be addable and not only Users
-    -   [ ] Include a Template Invite Link in README, since Bot needs certain Permissions
+    -   [x] Include a Template Invite Link in README, since Bot needs certain Permissions
