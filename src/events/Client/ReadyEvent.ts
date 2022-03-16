@@ -4,7 +4,6 @@ import { Command } from '../../interfaces/Command';
 
 export const run: RunFunction = async (client) => {
 	client.logger.success(`Client successfully started`);
-	client.user.setActivity('by Clover');
 
 	const devGuildId = '833444087255662623';
 	const devGuild = client.guilds.cache.get(devGuildId);
