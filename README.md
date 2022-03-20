@@ -47,40 +47,43 @@
 
 > Make sure to have NodeJS installed. I've built this Bot on NodeJS v17.4.0
 
-Create a `.env` file with the following data inside of it
+Create a `.env` file in the project root directory with the following data inside of it
 
 ```env
+PROD=true
 TOKEN=YOUR_DISCORD_BOT_TOKEN
 MONGO_URI=YOUR_MONGO_URI
 ```
 
-**Using NVM**
+**Make sure the PROD environment variable is set to true!!**
+
+### Using NVM
 
 ```bash
 $ nvm install
 $ nvm use
 ```
 
-**Yarn**
+### Yarn
 
 ```bash
 $ yarn install
 $ yarn start
 ```
 
-**NPM**
+### NPM
 
 ```bash
 $ npm install
 $ npm start
 ```
 
-**Scopes**
+### Scopes
 
 -   bot
 -   applications.commands
 
-**Permission**
+### Permission
 
 -   Read Messages
 -   Send Messages
@@ -96,7 +99,7 @@ $ npm start
 -   Use External Emojis
 -   Use External Stickers
 
-**Template Invite Link**
+### Template Invite Link
 
 `https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_CLIENT_ID&permissions=532576431168&scope=applications.commands%20bot`
 
