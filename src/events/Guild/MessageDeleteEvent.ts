@@ -15,7 +15,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 		ClosedAt: 0,
 	})) as Tickets;
 
-	if (!Ticket || !thread) return;
+	if (!Ticket || !thread || thread.archived) return;
 
 	await thread.send({ embeds: [client.embed({ description: '**Closing Ticket since Author deleted his Message**' })] });
 
