@@ -11,7 +11,7 @@ export const run: RunFunction = async (client) => {
 	const commands = process.env.PROD ? client.application.commands : devGuild.commands;
 
 	client.commands.map(async (command: Command) => {
-		commands.create({ ...(command as ApplicationCommandDataResolvable) });
+		await commands.create({ ...(command as ApplicationCommandDataResolvable) });
 	});
 };
 

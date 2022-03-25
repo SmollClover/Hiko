@@ -39,7 +39,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 		channel.Pings.unshift(msg.author.id);
 
 		const content = channel.Pings.map((value) => {
-			return `<@${value}>`;
+			return msg.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;
 		}).join(', ');
 		const embeds = [
 			client.embed({
@@ -47,7 +47,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 				fields: [
 					{
 						name: 'Author',
-						value: `<@${msg.author.id}>`,
+						value: `<@!${msg.author.id}>`,
 					},
 				],
 			}),
@@ -73,7 +73,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 					client.cleanEmbed({
 						title: 'Ticket Created',
 						fields: [
-							{ name: 'User', value: `<@${msg.author.id}>`, inline: true },
+							{ name: 'User', value: `<@!${msg.author.id}>`, inline: true },
 							{ name: 'Number', value: ticket.Number.toString(), inline: true },
 							{ name: 'Channel', value: `<#${ticket.Channel}>`, inline: true },
 							{ name: 'Message', value: ticket.Message },

@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionData, CommandInteraction, GuildMember } from 'discord.js';
+import { ApplicationCommandOptionData, CommandInteraction, GuildMember, Role } from 'discord.js';
 import { RunFunction } from '../../interfaces/Command';
 import { Settings } from '../../interfaces/DB';
 
@@ -28,17 +28,30 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 		return client.emit('guildCreate', interaction.guild);
 	}
 
-	const user = interaction.options.get('user').user;
+	const user = interaction.options.get('user')?.member as GuildMember;
+	const role = interaction.options.get('role')?.role as Role;
 	const action = interaction.options.get('action')?.value.toString().toLowerCase();
-	const status = Settings.Moderators.includes(user.id);
+
+	if (!user && !role)
+		return interaction.editReply({
+			embeds: [client.errorEmbed({ description: '**You have to either specify a User or a Role!**' })],
+		});
+
+	if (user && role)
+		return interaction.editReply({
+			embeds: [client.errorEmbed({ description: '**You may not add a User and a Role at the same time!**' })],
+		});
+
+	const id = user ? user.id : role.id;
+	const status = Settings.Moderators.includes(id);
 
 	if (action === 'add') {
 		if (status)
 			return interaction.editReply({
-				embeds: [client.errorEmbed({ description: '**User is already a Ticket Moderator**' })],
+				embeds: [client.errorEmbed({ description: '**User/Role is already a Ticket Moderator**' })],
 			});
 
-		Settings.Moderators.push(user.id);
+		Settings.Moderators.push(id);
 		await SettingsSchema.update({ Guild: interaction.guildId }, { ...Settings });
 
 		return interaction.editReply({
@@ -47,10 +60,10 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 	} else if (action === 'remove') {
 		if (!status)
 			return interaction.editReply({
-				embeds: [client.errorEmbed({ description: '**User is not a Ticket Moderator**' })],
+				embeds: [client.errorEmbed({ description: '**User/Role is not a Ticket Moderator**' })],
 			});
 
-		Settings.Moderators.splice(Settings.Moderators.indexOf(user.id), 1);
+		Settings.Moderators.splice(Settings.Moderators.indexOf(id), 1);
 		await SettingsSchema.update({ Guild: interaction.guildId }, { ...Settings });
 
 		return interaction.editReply({
@@ -60,7 +73,9 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 		return interaction.editReply({
 			embeds: [
 				client.embed({
-					description: status ? '🟢 **User is a Ticket Moderator**' : '🔴 **User is not a Ticket Moderator**',
+					description: status
+						? '🟢 **User/Role is a Ticket Moderator**'
+						: '🔴 **User/Role is not a Ticket Moderator**',
 				}),
 			],
 		});
@@ -77,12 +92,16 @@ export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'USER',
 		name: 'user',
-		description: 'The User in question.',
-		required: true,
+		description: 'The User in question. Can not be combined with role!',
+	},
+	{
+		type: 'ROLE',
+		name: 'role',
+		description: 'The Role in question. Can not be combined with user!',
 	},
 	{
 		type: 'STRING',
 		name: 'action',
-		description: 'Whether to add or remove the User from the Ticket Moderators. Leave empty to echo Moderator Status.',
+		description: 'Whether to add or remove the User/Role from the Ticket Moderators. Leave empty to echo Status.',
 	},
 ];

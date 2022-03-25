@@ -1,4 +1,4 @@
-import { ButtonInteraction, TextChannel, ThreadChannel } from 'discord.js';
+import { ButtonInteraction, GuildMemberRoleManager, TextChannel, ThreadChannel } from 'discord.js';
 import { RunFunction } from '../../interfaces/Button';
 import { Settings, Tickets } from '../../interfaces/DB';
 
@@ -18,9 +18,16 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 	})) as Tickets;
 
 	const user = interaction.member;
+	let canClose = false;
 
 	if (!Ticket || thread.archived) return;
-	if (!(Settings.Moderators.includes(user.user.id) || Ticket.Creator === user.user.id))
+
+	if (Ticket.Creator === user.user.id) canClose = true;
+	for (let i = 0; i < Settings.Moderators.length; i++) {
+		if ((user.roles as GuildMemberRoleManager).cache.get(Settings.Moderators[i])) canClose = true;
+	}
+
+	if (!canClose)
 		return interaction.editReply({
 			embeds: [client.errorEmbed({ description: "**You're not allowed to close this Ticket!**" })],
 		});
@@ -51,7 +58,7 @@ export const run: RunFunction = async (client, interaction: ButtonInteraction) =
 				client.cleanEmbed({
 					title: 'Ticket Closed',
 					fields: [
-						{ name: 'Closed by', value: `<@${interaction.user.id}>`, inline: true },
+						{ name: 'Closed by', value: `<@!${interaction.user.id}>`, inline: true },
 						{ name: 'Number', value: Ticket.Number.toString(), inline: true },
 						{ name: 'Channel', value: `<#${Ticket.Channel}>`, inline: true },
 					],

@@ -41,7 +41,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 				client.cleanEmbed({
 					title: 'Ticket Message Deleted',
 					fields: [
-						{ name: 'User', value: `<@${msg.author.id}>`, inline: true },
+						{ name: 'User', value: `<@!${msg.author.id}>`, inline: true },
 						{ name: 'Number', value: Ticket.Number.toString(), inline: true },
 						{ name: 'Channel', value: `<#${Ticket.Channel}>`, inline: true },
 						{ name: 'Message', value: Ticket.Message },

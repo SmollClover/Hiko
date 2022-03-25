@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionData, CommandInteraction, GuildMember, TextChannel } from 'discord.js';
+import { ApplicationCommandOptionData, CommandInteraction, GuildMember, Role, TextChannel } from 'discord.js';
 import { RunFunction } from '../../interfaces/Command';
 import { Channels } from '../../interfaces/DB';
 
@@ -16,43 +16,50 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 
 	const channel = interaction.options.get('ticket-channel')?.channel as TextChannel;
 	const user = interaction.options.get('user')?.member as GuildMember;
+	const role = interaction.options.get('role')?.role as Role;
 	const action = interaction.options.get('action')?.value.toString().toLowerCase();
+
+	if (user && role)
+		return interaction.editReply({
+			embeds: [client.errorEmbed({ description: '**You may not add a User and a Role at the same time!**' })],
+		});
 
 	const Channel = Channels.find((c) => c.Channel === channel.id);
 	if (!Channel)
 		return interaction.editReply({ embeds: [client.errorEmbed({ description: '**Channel is not a Ticket Channel!**' })] });
 
-	const status = Channel.Pings.includes(user.id);
+	const id = user ? user.id : role.id;
+	const status = Channel.Pings.includes(id);
 
 	if (action === 'add') {
 		if (status)
 			return interaction.editReply({
-				embeds: [client.errorEmbed({ description: '**User will already be pinged**' })],
+				embeds: [client.errorEmbed({ description: '**User/Role will already be pinged**' })],
 			});
 
-		Channel.Pings.push(user.id);
+		Channel.Pings.push(id);
 		await ChannelsSchema.update({ Channel: channel.id }, { ...Channel });
 
 		return interaction.editReply({
-			embeds: [client.embed({ description: '**Added User to the pings**' })],
+			embeds: [client.embed({ description: '**Added User/Role to the pings**' })],
 		});
 	} else if (action === 'remove') {
 		if (!status)
 			return interaction.editReply({
-				embeds: [client.errorEmbed({ description: "**User already won't be pinged**" })],
+				embeds: [client.errorEmbed({ description: "**User/Role already won't be pinged**" })],
 			});
 
-		Channel.Pings.splice(Channel.Pings.indexOf(user.id), 1);
+		Channel.Pings.splice(Channel.Pings.indexOf(id), 1);
 		await ChannelsSchema.update({ Channel: channel.id }, { ...Channel });
 
 		return interaction.editReply({
-			embeds: [client.embed({ description: '**Removed User from pings**' })],
+			embeds: [client.embed({ description: '**Removed User/Role from pings**' })],
 		});
 	} else if (!action) {
 		return interaction.editReply({
 			embeds: [
 				client.embed({
-					description: status ? '🟢 **User will be pinged**' : "🔴 **User won't be pinged**",
+					description: status ? '🟢 **User/Role will be pinged**' : "🔴 **User/Role won't be pinged**",
 				}),
 			],
 		});
@@ -64,7 +71,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 };
 
 export const name: string = 'ping';
-export const description: string = 'Add or Remove Roles to be pinged on Ticket creation';
+export const description: string = 'Add or Remove a User/Role to be pinged on Ticket creation';
 export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'CHANNEL',
@@ -76,8 +83,12 @@ export const options: Array<ApplicationCommandOptionData> = [
 	{
 		type: 'USER',
 		name: 'user',
-		description: 'The User in question.',
-		required: true,
+		description: 'The User in question. Can not be combined with role!',
+	},
+	{
+		type: 'ROLE',
+		name: 'role',
+		description: 'The Role in question. Can not be combined with user!',
 	},
 	{
 		type: 'STRING',

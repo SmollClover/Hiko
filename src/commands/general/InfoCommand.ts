@@ -38,7 +38,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 				value:
 					Settings.Moderators.length > 0
 						? Settings.Moderators.map((value) => {
-								return `<@${value}>`;
+								return interaction.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;
 						  }).join(', ')
 						: 'None',
 			},
@@ -52,7 +52,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 			`Quote: ${channel.Quote}`,
 			`Text: ${!!channel.Text}`,
 			`Pings: ${channel.Pings.map((value) => {
-				return `<@${value}>`;
+				return interaction.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;
 			}).join(', ')}`,
 		];
 
