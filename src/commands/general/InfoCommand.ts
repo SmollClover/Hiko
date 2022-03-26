@@ -50,6 +50,7 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 			`<#${channel.Channel}>`,
 			`Ticket Number: ${channel.Number}`,
 			`Quote: ${channel.Quote}`,
+			`Private: ${channel.Private}`,
 			`Text: ${!!channel.Text}`,
 			`Pings: ${channel.Pings.map((value) => {
 				return interaction.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;

@@ -158,4 +158,4 @@ $ npm start
 -   [x] Other
     -   [x] Make Roles be addable and not only Users
     -   [x] Include a Template Invite Link in README, since Bot needs certain Permissions
-    -   [ ] Have Thread be Private
+    -   [x] Have Thread be Private

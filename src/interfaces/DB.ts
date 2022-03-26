@@ -9,6 +9,7 @@ export interface Channels {
 	Channel: string;
 	Number: number;
 	Quote: boolean;
+	Private: boolean;
 	Pings: Array<string>;
 	Text: string;
 }

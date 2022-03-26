@@ -81,6 +81,7 @@ class client extends Client {
 						Channel: String,
 						Number: Number,
 						Quote: Boolean,
+						Private: Boolean,
 						Pings: Array,
 						Text: String,
 					},
