@@ -6,43 +6,6 @@
 
 ---
 
-## Data Structures
-
-<details>
-    <summary>Settings</summary>
-
-    ┌──────────┬─────────────────┬────────────────┐
-    │  Guild   │  Moderators     │  LogChannelId  |
-    ├──────────┼─────────────────┼────────────────┤
-    │  String  │  Array<String>  │  String        |
-    └──────────┴─────────────────┴────────────────┘
-
-</details>
-
-<details>
-    <summary>Channels</summary>
-
-    ┌──────────┬───────────┬──────────┬───────────┬─────────────────┬──────────┐
-    │  Guild   │  Channel  │  Number  │  Quote    │  Pings          │  Text    │
-    ├──────────┼───────────┼──────────┼───────────┼─────────────────┼──────────┤
-    │  String  │  String   │  Number  │  Boolean  │  Array<String>  │  String  │
-    └──────────┴───────────┴──────────┴───────────┴─────────────────┴──────────┘
-
-</details>
-
-<details>
-    <summary>Tickets</summary>
-
-    ┌──────────┬──────────┬───────────┬──────────┬───────────┬───────────┬─────────────┬────────────┐
-    │  Guild   │  Ticket  │  Channel  │  Number  │  Message  │  Creator  │  CreatedAt  │  ClosedAt  │
-    ├──────────┼──────────┼───────────┼──────────┼───────────┼───────────┼─────────────┼────────────┤
-    │  String  │  String  │  String   │  Number  │  String   │  String   │  Number     │  Number    │
-    └──────────┴──────────┴───────────┴──────────┴───────────┴───────────┴─────────────┴────────────┘
-
-</details>
-
----
-
 ## Setup Instructions
 
 > Make sure to have NodeJS installed. I've built this Bot on NodeJS v17.4.0
