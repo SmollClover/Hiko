@@ -68,7 +68,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 				const messagePayload = content ? { content, embeds, components } : { embeds, components };
 				await thread.send(messagePayload);
 
-				msg.delete;
+				await msg.delete();
 
 				try {
 					const logChannel = await msg.guild.channels.fetch(Settings.LogChannelId, { force: true });
