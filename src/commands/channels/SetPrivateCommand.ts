@@ -11,6 +11,10 @@ export const run: RunFunction = async (client, interaction: CommandInteraction) 
 
 	await interaction.deferReply();
 
+	return interaction.editReply({
+		embeds: [client.errorEmbed({ description: "**Function currenlty doesn't work and is therefore deactivated**" })],
+	});
+
 	const ChannelsSchema = await client.db.load('channels');
 	const Channels = (await ChannelsSchema.find({ Guild: interaction.guildId })) as Array<Channels>;
 
