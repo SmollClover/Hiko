@@ -40,7 +40,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 				channel.Number += 1;
 				await TicketsSchema.create(ticket);
 				await ChannelsSchema.update({ Channel: channel.Channel }, { ...channel });
-				channel.Pings.unshift(msg.author.id);
+				channel.Pings.unshift(ticket.Creator);
 
 				const content = channel.Pings.map((value) => {
 					return msg.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;
@@ -51,7 +51,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 						fields: [
 							{
 								name: 'Author',
-								value: `<@!${msg.author.id}>`,
+								value: `<@!${ticket.Creator}>`,
 							},
 						],
 					}),
@@ -68,6 +68,8 @@ export const run: RunFunction = async (client, msg: Message) => {
 				const messagePayload = content ? { content, embeds, components } : { embeds, components };
 				await thread.send(messagePayload);
 
+				msg.delete;
+
 				try {
 					const logChannel = await msg.guild.channels.fetch(Settings.LogChannelId, { force: true });
 					if (!logChannel || !(logChannel instanceof TextChannel)) return;
@@ -77,7 +79,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 							client.cleanEmbed({
 								title: 'Ticket Created',
 								fields: [
-									{ name: 'User', value: `<@!${msg.author.id}>`, inline: true },
+									{ name: 'User', value: `<@!${ticket.Creator}>`, inline: true },
 									{ name: 'Number', value: ticket.Number.toString(), inline: true },
 									{ name: 'Channel', value: `<#${ticket.Channel}>`, inline: true },
 									{ name: 'Message', value: ticket.Message },
@@ -111,7 +113,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 			channel.Number += 1;
 			await TicketsSchema.create(ticket);
 			await ChannelsSchema.update({ Channel: channel.Channel }, { ...channel });
-			channel.Pings.unshift(msg.author.id);
+			channel.Pings.unshift(ticket.Creator);
 
 			const content = channel.Pings.map((value) => {
 				return msg.guild.roles.cache.get(value) ? `<@&${value}>` : `<@!${value}>`;
@@ -122,7 +124,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 					fields: [
 						{
 							name: 'Author',
-							value: `<@!${msg.author.id}>`,
+							value: `<@!${ticket.Creator}>`,
 						},
 					],
 				}),
@@ -150,7 +152,7 @@ export const run: RunFunction = async (client, msg: Message) => {
 						client.cleanEmbed({
 							title: 'Ticket Created',
 							fields: [
-								{ name: 'User', value: `<@!${msg.author.id}>`, inline: true },
+								{ name: 'User', value: `<@!${ticket.Creator}>`, inline: true },
 								{ name: 'Number', value: ticket.Number.toString(), inline: true },
 								{ name: 'Channel', value: `<#${ticket.Channel}>`, inline: true },
 								{ name: 'Message', value: ticket.Message },
