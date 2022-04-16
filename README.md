@@ -13,12 +13,9 @@
 Create a `.env` file in the project root directory with the following data inside of it
 
 ```env
-PROD=true
 TOKEN=YOUR_DISCORD_BOT_TOKEN
 MONGO_URI=YOUR_MONGO_URI
 ```
-
-**Make sure the PROD environment variable is set to true!!**
 
 ### Using NVM
 

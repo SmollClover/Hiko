@@ -8,7 +8,7 @@ export const run: RunFunction = async (client) => {
 	const devGuildId = '833444087255662623';
 	const devGuild = client.guilds.cache.get(devGuildId);
 
-	const commands = process.env.PROD ? client.application.commands : devGuild.commands;
+	const commands = process.env.DEV ? devGuild.commands : client.application.commands;
 
 	client.commands.map(async (command: Command) => {
 		await commands.create({ ...(command as ApplicationCommandDataResolvable) });

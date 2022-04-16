@@ -35,7 +35,7 @@ class client extends Client {
 	}
 
 	public async start(TOKEN: string): Promise<void> {
-		if (!process.env.PROD) this.logger.info('PROD Env Variable not set');
+		if (process.env.DEV) this.logger.info('Development Env Variable set');
 
 		this.login(TOKEN);
 
