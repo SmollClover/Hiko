@@ -8,7 +8,7 @@
 
 ## Setup Instructions
 
-> Make sure to have NodeJS installed. I've built this Bot on NodeJS v17.4.0
+> Make sure to have NodeJS installed. I've built this Bot on NodeJS v18.1.0
 
 Create a `.env` file in the project root directory with the following data inside of it
 
