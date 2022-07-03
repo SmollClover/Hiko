@@ -1,6 +1,6 @@
 import { Message, MessageActionRow, MessageButton, TextChannel } from 'discord.js';
+
 import { RunFunction } from '../../interfaces/Event';
-import { Settings, Channels } from '../../interfaces/DB';
 
 export const run: RunFunction = async (client, msg: Message) => {
 	if (!msg.guild || msg.author.bot) return;
